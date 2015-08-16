@@ -1,0 +1,14 @@
+body {
+    color: black;
+    font-family: Helvetica, sans-serif;
+    padding: 20px;
+    letter-spacing: 2px;
+}
+h1, h2 {
+    text-align: center;
+}
+a, a:hover, a:visited {
+    color: black;
+    border-bottom: 1px solid black;
+    text-decoration: none;
+}
