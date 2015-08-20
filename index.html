@@ -10,12 +10,47 @@
 <!-- it takes the list that is called items in the JSON response (data) (to access it go to the url api.zotero.org/… bleow) and puts them in the template -->
 <script id="entry-template" type="text/x-handlebars-template">
 {{#each items}}
-  <p class="commit">{{ title }}, <em>{{ type }}</em><br /><span style="color: red">{{ abstract }}</span></p>
+    <div class="{{#if data.parentItem}} attached-note {{/if}}" style="border-top: 1px solid black; margin-top: 50px; padding-top: 30px;">
+        <p>{{ data.title }}<br /><em>{{ data.itemType }}</em><br /><span>{{{ data.note }}}</span></p>
+        <p>{{#if data.abstractNote}}Abstract: {{ data.abstractNote }}{{/if}}</p>
+        <p>
+            {{!-- only output this tags if they exist --}}
+            {{#if data.tags}}
+            Tags: {{#each data.tags}} {{ tag }}, {{/each}}
+            {{/if}}
+        </p>
+    </div>
 {{/each}}
 </script>
 
-<!--
-ca marche: https://api.zotero.org/users/1404902/items?key=fQAzFJXRib1RiqWRM2CUVeTq&format=csljson
+<script>
+$(function() {
+    /* takes the entry-template element */
+    var source = $("#entry-template").html();
+    /* the jquery library Handelbars converts the template text into a template object*/
+    var template = Handlebars.compile(source);
+    /* gets the collection from zotero */
+ $.getJSON('https://api.zotero.org/groups/384780/items?key=1L6PZcpcAGt60UArycW14g7v&limit=100&sort=title', function(data) {
+     /* if the query succeeds, the response will be available as the variable “data”: */
+     /* this variable is sent to the template above */
+        $("#items-container").html(template({ items: data }));
+    });
+});
+
+
+</script>
+
+<div class="container">
+<h1>Collaborative library</h1>
+
+<p style="text-align: center"><a href="https://www.zotero.org/groups/384780" target="_blank">See the collection on the Zotero group’s page</a></p>
+
+<div id="items-container">
+
+</div>
+
+<!-- NOTES:
+this works: https://api.zotero.org/users/1404902/items?key=fQAzFJXRib1RiqWRM2CUVeTq&format=csljson
 
 https://api.zotero.org/users/1404902/items?key=fQAzFJXRib1RiqWRM2CUVeTq&format=csljson&limit=100&itemType=book
 
@@ -47,29 +82,3 @@ NOTES AND ANNOTATIONS (don’t work ONLINE :( )
 https://www.zotero.org/support/dev/client_coding/javascript_api#get_child_notes_for_an_item
 
 -->
-
-<script>
-$(function() {
-    /* takes the entry-template element */
-    var source = $("#entry-template").html();
-    /* the jquery library Handelbars converts the template text into a template object*/
-    var template = Handlebars.compile(source);
-    /* gets the collection from zotero */
- $.getJSON('https://api.zotero.org/groups/384780/items?key=1L6PZcpcAGt60UArycW14g7v&format=csljson', function(data) {
-     /* if the query succeeds, the response will be available as the variable “data”: */
-     /* this variable is sent to the template above */
-        $("#items-container").html(template(data));
-    });
-});
-
-
-</script>
-
-<div class="container">
-<h1>Zotero shared library interface</h1>
-
-<a href="https://www.zotero.org/groups/384780" target="_blank">The group’s url</a>
-
-<div id="items-container">
-
-</div>

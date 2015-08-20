@@ -3,9 +3,22 @@ body {
     font-family: Helvetica, sans-serif;
     padding: 20px;
     letter-spacing: 2px;
+    max-width: 800px;
+    margin: auto;
+}
+::-moz-selection { /* Code for Firefox */
+    background: #66FFFF;
+}
+::selection {
+    background: pink;
+}
+img {
+    max-width: 800px;
 }
 h1, h2 {
     text-align: center;
+    text-transform: uppercase;
+    font-weight: normal;
 }
 a, a:hover, a:visited {
     color: black;
