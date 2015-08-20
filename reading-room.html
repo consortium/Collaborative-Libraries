@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<title>Reading-Room</title>
+<link rel="stylesheet" href="css/style.css">
+
+<script src="js/handlebars-1.0.rc.1.js"></script>
+<script src="js/jquery-1.7.2.min.js"></script>
+
+<!-- it takes the list that is called items in the JSON response (data) (to access it go to the url api.zotero.org/… bleow) and puts them in the template -->
+<script id="entry-template" type="text/x-handlebars-template">
+{{#each items}}
+    <div class="{{#if data.parentItem}} attached-note {{/if}}" style="border-top: 1px solid black; margin-top: 50px; padding-top: 30px;">
+        <!-- # is used to only output the data if they exist -->
+        <p>{{#if data.title}}<em>{{ data.title }}</em>{{/if}}{{#if data.creators}}{{#each data.creators}}, {{ firstName }} {{ lastName }}{{/each}}{{/if}}{{#if data.publisher}}, {{ data.publisher }}{{/if}}{{#if data.date}}, {{ data.date }}{{/if}}
+        </p>
+        {{#if data.note}}<p>{{{ data.note }}}</p>{{/if}}
+        {{#if data.abstractNote}}
+            <p>Abstract: {{ data.abstractNote }}</p>
+        {{/if}}
+        {{#if data.tags}}<p>
+            {{#each data.tags}} <span class="tag">{{ tag }}</span> {{/each}}</p>
+        {{/if}}
+    </div>
+{{/each}}
+</script>
+
+<script>
+$(function() {
+    /* takes the entry-template element */
+    var source = $("#entry-template").html();
+    /* the jquery library Handelbars converts the template text into a template object*/
+    var template = Handlebars.compile(source);
+
+
+var processData = function(inData) {
+    var obj = {}
+    for (var i=0; i < inData.length; i++) {
+        item = inData[i];
+        // do things with item
+        // create a new way of ordering things, easier to use
+        // (not as a list like before but as an ‘object’ ~ dictionnary)
+        obj[item.data.key] = item;
+    }
+    //TO ORDER THINGS IN A SPECIFIC WAY
+    var getSortString = function(item) {
+        if (!item.data.title) {
+            if (item.data.parentItem) {
+                return obj[item.data.parentItem].data.title + item.data.note;
+            } else {
+                return item.data.note;
+            }
+        }
+        return item.data.title;
+    }
+    //takes everytime two objects of the array and compares them
+    inData.sort(function(a, b) {
+        a = getSortString(a);
+        b = getSortString(b);
+        if (a === b) return 0;
+        if (a < b) return -1;
+        if (a > b) return 1;
+    });
+    return inData;
+}
+
+
+    /* gets the collection from zotero */
+ $.getJSON('https://api.zotero.org/groups/384780/collections/KQNTSI5B/items?key=1L6PZcpcAGt60UArycW14g7v&limit=100&sort=title', function(incomingData) {
+     /* if the query succeeds, the response will be available as the variable “data”: */
+     /* this variable is sent to the template above */
+        var processedData = processData(incomingData);
+        $("#items-container").html(template({ items: processedData }));
+    });
+});
+
+
+</script>
+
+<div class="container">
+    <h1><a href="index.html">Open Public library</a></h1>
+    <h2>READING-ROOM</h2>
+
+<div id="items-container">
+
+</div>

@@ -20,8 +20,23 @@ h1, h2 {
     text-transform: uppercase;
     font-weight: normal;
 }
-a, a:hover, a:visited {
+h2 {
+    margin-top: -10px;
+}
+a, a:hover, a:visited, a:focus, a:active {
     color: black;
     border-bottom: 1px solid black;
     text-decoration: none;
+}
+.tag {
+    font-size: 0.8em;
+    border: 1px solid black;
+    padding: 5px 3px 3px 5px;
+}
+.attached-note {
+    max-width: 600px;
+    margin: auto;
+}
+.attached-note img {
+    max-width: 600px;
 }
