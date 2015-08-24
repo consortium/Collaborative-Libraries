@@ -10,14 +10,11 @@
 <!-- it takes the list that is called items in the JSON response (data) (to access it go to the url api.zotero.org/… bleow) and puts them in the template -->
 <script id="entry-template" type="text/x-handlebars-template">
 {{#each items}}
-    <div class="{{#if data.parentItem}} attached-note {{/if}}" style="border-top: 1px solid black; margin-top: 50px; padding-top: 30px;">
-        <!-- # is used to only output the data if they exist -->
-        <p>{{#if data.title}}<em>{{ data.title }}</em>{{/if}}{{#if data.creators}}{{#each data.creators}}, {{ firstName }} {{ lastName }}{{/each}}{{/if}}{{#if data.publisher}}, {{ data.publisher }}{{/if}}{{#if data.date}}, {{ data.date }}{{/if}}
-        </p>
-        {{#if data.note}}<p>{{{ data.note }}}</p>{{/if}}
-        {{#if data.abstractNote}}
-            <p>Abstract: {{ data.abstractNote }}</p>
-        {{/if}}
+    <div class="collection-content {{#if data.parentItem}} attached-note {{/if}}">
+        <!-- ONLY DISPLAYS NOTES & TAGS -->
+        {{#if data.note}}
+            <div class="text-bloc">{{{ data.note }}}</div>{{/if}}
+
         {{#if data.tags}}<p>
             {{#each data.tags}} <span class="tag">{{ tag }}</span> {{/each}}</p>
         {{/if}}
@@ -78,8 +75,9 @@ var processData = function(inData) {
 </script>
 
 <div class="container">
-    <h1><a href="index.html">Open Public library</a></h1>
-    <h2>READING-ROOM</h2>
+    <h1>Online</h1>
+    <h1><a href="index.html">Open Reading Group</a></h1>
+    <h2>&#8618; READING-ROOM</h2>
 
 <div id="items-container">
 

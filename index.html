@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
 
-<title>The Whole Shared Library</title>
+<title>Zotero library</title>
 <link rel="stylesheet" href="css/style.css">
 
 <script src="js/handlebars-1.0.rc.1.js"></script>
@@ -10,10 +10,9 @@
 <!-- it takes the list that is called items in the JSON response (data) (to access it go to the url api.zotero.org/… bleow) and puts them in the template -->
 <script id="entry-template" type="text/x-handlebars-template">
 {{#each items}}
-    <div class="collection-content {{#if data.parentItem}} attached-note {{/if}}">
+    <div class="collection-content {{#if data.parentItem}} attached-note {{/if}}" style="margin-top: 50px; font-size: 1.3em;">
         <!-- # is used to only output the data if they exist -->
-        {{#if data.itemType}}<p><span class="item-type">{{{ data.itemType }}}:</span></p>{{/if}}
-        {{#if data.title}}<p><span class="item-reference"><em>{{ data.title }}</em>{{#if data.creators}}{{#each data.creators}}, {{ firstName }} {{ lastName }}{{/each}}{{/if}}{{#if data.publisher}}, {{ data.publisher }}{{/if}}{{#if data.date}}, {{ data.date }}{{/if}}</span>
+        {{#if data.title}}<p class="item-reference"><em>{{ data.title }}</em>{{#if data.creators}}{{#each data.creators}}, {{ firstName }} {{ lastName }}{{/each}}{{/if}}{{#if data.publisher}}, {{ data.publisher }}{{/if}}{{#if data.date}}, {{ data.date }}{{/if}}
         </p>{{/if}}
         {{#if data.note}}
             <div class="text-bloc">{{{ data.note }}}</div>{{/if}}
@@ -84,7 +83,7 @@ var processData = function(inData) {
 
 
     /* gets the collection from zotero */
- $.getJSON('https://api.zotero.org/groups/384780/items?key=1L6PZcpcAGt60UArycW14g7v&limit=100&sort=title', function(incomingData) {
+ $.getJSON('https://api.zotero.org/groups/384780/collections/EGZFBCVH/items?key=1L6PZcpcAGt60UArycW14g7v&limit=100&sort=title', function(incomingData) {
      /* if the query succeeds, the response will be available as the variable “data”: */
      /* this variable is sent to the template above */
         var processedData = processData(incomingData);
@@ -97,44 +96,41 @@ var processData = function(inData) {
 
 <div class="container">
     <h1>Online</h1>
-    <h1><a href="index.html">Open Reading Group</a></h1>
-    <h2>&#8618; The Whole Shared Library</h2>
-
+<h1>Open Reading Group</h1>
 
 <div id="items-container">
 
 </div>
 
+
+<p style="border-top: 2px solid blue; margin-top: 50px; padding-top: 30px;"><a href="reading-room.html">reading-room</a></p><p>where you can comment on your readings</p>
+
+<p style="border-top: 2px solid blue; margin-top: 50px; padding-top: 30px;"><a href="collaborative-libraries.html">collaborative libraries</a></p><p>a specific collection on “collective libraries”</p>
+
+<p style="border-top: 2px solid blue; margin-top: 50px; padding-top: 30px;"><a href="https://www.zotero.org/groups/384780" target="_blank">more collections</a></p><p>can be added through the Zotero group</p>
+
+<p style="border-top: 2px solid blue; margin-top: 50px; padding-top: 30px;"><a href="whole.html">the whole shared library</a></p><p>contains all the references shared in all the collections</p>
+
+<p style="text-align: center; border-top: 2px solid blue; margin-top: 50px; padding-top: 30px;"><a href="https://www.zotero.org/groups/384780" target="_blank">join (through the Zotero group)</a></p>
+
+
 <!-- NOTES:
-this works: https://api.zotero.org/users/1404902/items?key=fQAzFJXRib1RiqWRM2CUVeTq&format=csljson
 
-https://api.zotero.org/users/1404902/items?key=fQAzFJXRib1RiqWRM2CUVeTq&format=csljson&limit=100&itemType=book
-
-to get only one item:
-https://api.zotero.org/users/1404902/items/Q2TAUHDA?key=fQAzFJXRib1RiqWRM2CUVeTq&format=csljson
-
-Another example
-https://api.zotero.org/users/475425/collections/9KH9TNSJ/items?format=bib
-
-didn’t work:
-https://api.zotero.org/groups/358795/items?format=csljson
-
-Key for the group:
-1L6PZcpcAGt60UArycW14g7v
-(to create a new key: https://www.zotero.org/settings/keys/new)
-
-https://api.zotero.org/groups/358795/items?key=1L6PZcpcAGt60UArycW14g7v&format=csljson
-
-REF Citation style language csljson:
-
-https://github.com/citation-style-language/schema/blob/master/csl-data.json
-Zotero’s API info
-https://www.zotero.org/support/dev/client_coding/javascript_api
-
-BASICS DOCU
+Documentation on Zotero’s api:
 https://www.zotero.org/support/dev/web_api/v3/basics
 
-NOTES AND ANNOTATIONS (don’t work ONLINE :( )
-https://www.zotero.org/support/dev/client_coding/javascript_api#get_child_notes_for_an_item
+Get the key of a group online, observe the url
+(to create a new key: https://www.zotero.org/settings/keys/new)
+
+Specific format: CSLJSON
+- Get every item in the database: https://api.zotero.org/users/1404902/items?key=fQAzFJXRib1RiqWRM2CUVeTq&format=csljson
+- Get every books in the database:
+https://api.zotero.org/users/1404902/items?key=fQAzFJXRib1RiqWRM2CUVeTq&format=csljson&limit=100&itemType=book
+- Get only one specific item:
+https://api.zotero.org/users/1404902/items/Q2TAUHDA?key=fQAzFJXRib1RiqWRM2CUVeTq&format=csljson
+- Ref. citation style language csljson:
+https://github.com/citation-style-language/schema/blob/master/csl-data.json
+Another format: BIB
+https://api.zotero.org/users/475425/collections/9KH9TNSJ/items?format=bib
 
 -->
