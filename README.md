@@ -3,18 +3,18 @@
 By Loraine Furter and Simon Worthington 
 
 **Format:** online workshop and on-site Medialab Prado, Madrid  
-Announcement: http://medialab-prado.es/article/gestionando-bibliotecas-colaborativas  
-Webcast: https://meet.jit.si/CollaborativeLibraries and Skype @lorainefurter @mrchristian3  
-GitHub workshop guide: https://github.com/consortium/Collaborative-Libraries  
-Zotero test library group: https://www.zotero.org/groups/384780  
-Library Web API interface: http://lorainefurter.net/shared-library/index.html  
-Library Web API interface (code): https://github.com/furter/shared-library  
-Etherpad notes: https://consortium.titanpad.com/67  
-Duration: 3 hours  
-Date and time: 3rd September 2015, 18:00 CEST  
-What to bring along and how to prepare: please bring a laptop (or share one if you can’t bring one) with Zotero installed and your Zotero online account setup. See the ‘Setup Guide’ below.  
-Level of knowledge: entry level, no prior experience  
-Language: spoken, English. Software, Zotero - multilingual  
+**Announcement:** http://medialab-prado.es/article/gestionando-bibliotecas-colaborativas  
+**Webcast:** https://meet.jit.si/CollaborativeLibraries and Skype @lorainefurter @mrchristian3  
+**GitHub workshop guide:** https://github.com/consortium/Collaborative-Libraries  
+**Zotero test library group:** https://www.zotero.org/groups/384780  
+**Library Web API interface:** http://lorainefurter.net/shared-library/index.html  
+**Library Web API interface (code):** https://github.com/furter/shared-library  
+**Etherpad notes:** https://consortium.titanpad.com/67  
+**Duration:** 3 hours  
+**Date and time:** 3rd September 2015, 18:00 CEST  
+**What to bring along and how to prepare:** please bring a laptop (or share one if you can’t bring one) with Zotero installed and your Zotero online account setup. See the ‘Setup Guide’ below.  
+**Level of knowledge:** entry level, no prior experience  
+**Language:** spoken, English. Software, Zotero - multilingual  
 
 ## The Workshop - what we’ll cover 
 
