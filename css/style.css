@@ -46,6 +46,10 @@ h1 a, h1 a:hover, h1 a:visited, h1 a:focus, h1 a:active {
     color: black;
     border-bottom: 0;
 }
+h3 a, h3 a:hover, h3 a:visited, h3 a:focus, h3 a:active {
+    color: black;
+    border-bottom: 0;
+}
 h2 {
     font-size: 1.8em;
     margin-top: 20px;
@@ -72,8 +76,14 @@ p {
     font-size: 1.2em;
 }
 .menu {
-    display: table;
+    display: inline-block;
     margin: auto;
+    margin-top: 20px;
+}
+.menu h3 {
+    font-size: 1.2em;
+    font-weight: normal;
+    margin-bottom: 1em;
 }
 .menu-cards {
     border: 4px solid black;
@@ -81,8 +91,8 @@ p {
     border-left: 3px solid black;
     background-color: white;
     height: 400px;
-    max-width: 700px;
-    margin-bottom: -350px;
+    width: 700px;
+    position: absolute;
     padding: 20px 30px;
 }
 .menu-cards:last-of-type {
