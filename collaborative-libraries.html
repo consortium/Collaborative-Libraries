@@ -1,31 +1,83 @@
 <!DOCTYPE html>
-<meta charset="utf-8">
+<link rel="shortcut icon" href="http://lorainefurter.net/shared-library/favicon.ico" type="image/x-icon"/>
+<link rel="icon" href="http://lorainefurter.net/shared-library/favicon.ico" type="image/x-icon"/>
+<!-- GENERAL METADATA: -->
+<meta charset="utf-8" />
+<!-- character encoding -->
+<meta name="keywords" content="collaborative, library, libraries"/>
+<!-- keywords for search engines: each keyword separated by a comma (~10 is a good number) -->
+<meta name="description" content="a collaborative library and collective reading space"/>
+<!-- description of the web page -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<!-- specifies a version of Internet Explorer -->
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!-- responsive -->
+
+<!-- DUBLIN CORE: -->
+<meta name="DC.title" content="Online Reading Group"/>
+<meta name="DC.contributor" content="Loraine Furter"/>
+<!-- person/organization responsible for making contributions to the content of the resource -->
+<meta name="DC.creator" content="Loraine Furter" />
+<!-- person/organization responsible for making the content of the resource -->
+<meta name="DC.publisher" content=""/>
+<!-- person/organization responsible for making the resource available -->
+<meta name="DC.subject" content="collaborative, library, libraries">
+<!-- comma separated (can be more than the keywords) -->
+<meta name="DC.description.abstract" content="a collaborative library and collective reading space"/>
+<meta name="DC.date" scheme="W3CDTF"  content="2015-08-31"/>
+<!-- date of creation or availability of the resource: yyyy-mm-dd -->
+<meta name="DC.type" content="webPage"/>
+<!-- = book / blogPost / artwork / bookSection / audioRecording / presentation (cf Zotero’s types)  -->
+<meta name="DC.format" content="text/html"/>
+<meta name="DC.identifier" content=""/>
+<!-- for instance: URL / URI / DOI (Digital Object Identifier) / ISBN / ISSN / … -->
+<meta name="DC.identifier.URL" content="http://url.net"/>
+<meta name="DC.language" content="eng"/>
+<!-- RFC3066 + ISO 639-3 language standard: http://en.wikipedia.org/wiki/ISO_639:a -->
+<meta name="DC.source" content="http://url.net/">
+<!-- link to a resource from which the present resource is derived -->
+<meta name="DC.relation" content=""/>
+<!-- reference to a related resource (using its identifier) -->
+<meta name="DC.rights" content=""/>
+<meta name="DC.bibliographicCitation" content="use a Chicago Manual of Style citation"/> <!-- doesn’t need editing -->
+
+<!-- FACEBOOK: -->
+<meta property="og:url" content="http://lorainefurter.net/shared-library/"/>
+<meta property="og:title" content="Online Reading Group"/>
+<meta property="og:image" content="http://lorainefurter.net/shared-library/shared-library.png"/>
+<!-- generic image: the best is 1200 x 630px for big images, or 100px by 100px -->
+<meta property="og:site_name" content="Online Reading Group"/>
+<meta property="og:description" content="a collaborative library and collective reading space"/>
+<meta property="og:type" content="webPage" />
 
 <title>Collaborative libraries</title>
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="fonts/webfont.css">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <script src="js/handlebars-1.0.rc.1.js"></script>
 <script src="js/jquery-1.7.2.min.js"></script>
 
 <!-- it takes the list that is called items in the JSON response (data) (to access it go to the url api.zotero.org/… bleow) and puts them in the template -->
+
 <script id="entry-template" type="text/x-handlebars-template">
 {{#each items}}
-    <div class="collection-content {{#if data.parentItem}} attached-note {{/if}}">
+    <div class="one-item {{#if data.parentItem}} attached-note {{/if}} {{#if data.itemType.note}} independent-note {{/if}}">
         <!-- # is used to only output the data if they exist -->
-        {{#if data.itemType}}<p><span class="item-type">{{{ data.itemType }}}:</span></p>{{/if}}
-        {{#if data.title}}<p><span class="item-reference"><em>{{ data.title }}</em>{{#if data.creators}}{{#each data.creators}}, {{ firstName }} {{ lastName }}{{/each}}{{/if}}{{#if data.publisher}}, {{ data.publisher }}{{/if}}{{#if data.date}}, {{ data.date }}{{/if}}</span>
-        </p>{{/if}}
-        {{#if data.note}}
-            <div class="text-bloc">{{{ data.note }}}</div>{{/if}}
-        {{#if data.abstractNote}}
-            <div class="text-bloc">Abstract: {{ data.abstractNote }}</div>
-        {{/if}}
-        {{#if data.tags}}<p>
-            {{#each data.tags}} <span class="tag">{{ tag }}</span> {{/each}}</p>
-        {{/if}}
+        <div class="item-type">{{#if data.parentItem}} ATTACHED-<br />{{/if}}{{{ data.itemType }}}</div>
+        <div class="item-reference"><em>{{ data.title }}</em>{{#if data.creators}}{{#each data.creators}}, {{ firstName }} {{ lastName }}{{/each}}{{/if}}{{#if data.publisher}}, {{ data.publisher }}{{/if}}{{#if data.date}}, {{ data.date }}{{/if}}</div>
+        <div class="item-tags">{{#each data.tags}}<p>{{ tag }}</p>{{/each}}</div>
+        <div class="item-abstract">
+            {{#if data.abstractNote}}<p>Abstract: {{ data.abstractNote }}</p>{{/if}}
+            <p>{{{ data.note }}}</p>
+        </div>
+        <div class="card-hole">&#10061;</div>
     </div>
 {{/each}}
 </script>
+
+
 
 <script>
 $(function() {
@@ -96,44 +148,58 @@ var processData = function(inData) {
 </script>
 
 <div class="container">
-    <h1>Online</h1>
-<h1><a href="index.html">Open Reading Group</a></h1>
-<h2>&#8618; Collaborative libraries</h2>
+    <h1><a href="index.html">Online<br />Reading<br />Group</a></h1>
+<h2>Collaborative libraries</h2>
 
-<div id="items-container">
 
-</div>
+<div class="drawer">
 
-<!-- NOTES:
-this works: https://api.zotero.org/users/1404902/items?key=fQAzFJXRib1RiqWRM2CUVeTq&format=csljson
+    <div id="items-container">
 
-https://api.zotero.org/users/1404902/items?key=fQAzFJXRib1RiqWRM2CUVeTq&format=csljson&limit=100&itemType=book
+    </div>
 
-to get only one item:
-https://api.zotero.org/users/1404902/items/Q2TAUHDA?key=fQAzFJXRib1RiqWRM2CUVeTq&format=csljson
 
-Another example
-https://api.zotero.org/users/475425/collections/9KH9TNSJ/items?format=bib
+    <!-- TEST OFFLINE
 
-didn’t work:
-https://api.zotero.org/groups/358795/items?format=csljson
 
-Key for the group:
-1L6PZcpcAGt60UArycW14g7v
-(to create a new key: https://www.zotero.org/settings/keys/new)
+    <div class="one-item">
+        <div class="item-type">note</div>
+        <div class="item-reference"><em>_</em></div>
+        <div class="item-tags">tag1</div>
+        <div class="item-abstract"><p>Abstract: </p>
+            <p>An independent note.
+            This is the content of the note blabla bla…</p>
+        </div>
+        <div class="card-hole">●</div>
+    </div>
 
-https://api.zotero.org/groups/358795/items?key=1L6PZcpcAGt60UArycW14g7v&format=csljson
+    <div class="one-item">
+        <div class="item-type">book</div>
+        <div class="item-reference"><em>A Book Title</em>, First Name Last Name, Publisher, 2015</div>
+        <div class="item-tags"><p>tag1</p><p>tag2</p></div>
+        <div class="item-abstract"><p>Abstract: </p>
+            <p> (?)</p>
+        </div>
+        <div class="card-hole">●</div>
+    </div>
 
-REF Citation style language csljson:
-
-https://github.com/citation-style-language/schema/blob/master/csl-data.json
-Zotero’s API info
-https://www.zotero.org/support/dev/client_coding/javascript_api
-
-BASICS DOCU
-https://www.zotero.org/support/dev/web_api/v3/basics
-
-NOTES AND ANNOTATIONS (don’t work ONLINE :( )
-https://www.zotero.org/support/dev/client_coding/javascript_api#get_child_notes_for_an_item
-
+    <div class="one-item attached-note">
+        <div class="item-type">note</div>
+        <div class="item-reference"><em>_</em></div>
+        <div class="item-tags">tag1</div>
+        <div class="item-abstract"><p>Abstract: </p>
+            <p>A note linked to the computer program item.
+    The content blablabla…</p>
+    <p>A note linked to the computer program item.
+The content blablabla…</p>
+<p>A note linked to the computer program item.
+The content blablabla…</p>
+<p>A note linked to the computer program item.
+The content blablabla…</p>
+        </div>
+        <div class="card-hole">●</div>
+    </div>
 -->
+
+    </div>
+</div>
