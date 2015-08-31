@@ -52,4 +52,4 @@ Multilingual support (Spanish) https://www.zotero.org/support/es/installation
 * Browser - In your browser navigate to the Extension preferences and input your login details. The options may be different depending on your browser type. 
 
 6. Join the test Zotero workshop online library. Navigate to this address in your browser and once you're logged in with your Zotero credentials click the ‘Join Group’ https://www.zotero.org/groups/384780 
-7. Install the word processor Zotero plugin Navigate here and follow the install instructions. It is normal for the plugin not to work correctly, so if you find it will not install or doesn’t properly function you can skip this part. https://www.zotero.org/support/wordprocessorplugin_installation 
+7. Install the word processor Zotero plugin. Navigate to the address below and follow the install instructions. It is normal for the plugin not to work correctly, so if you find it will not install or doesn’t properly function you can skip this part. https://www.zotero.org/support/wordprocessorplugin_installation 
