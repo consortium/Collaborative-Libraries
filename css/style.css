@@ -46,18 +46,21 @@ h1 a, h1 a:hover, h1 a:visited, h1 a:focus, h1 a:active {
     color: black;
     border-bottom: 0;
 }
-h3 a, h3 a:hover, h3 a:visited, h3 a:focus, h3 a:active {
-    color: black;
-    border-bottom: 0;
-}
 h2 {
     font-size: 1.8em;
     margin-top: 20px;
 }
 a, a:hover, a:visited, a:focus, a:active {
     color: blue;
-    border-bottom: 2px solid blue;
+    border-bottom: 1px solid blue;
     text-decoration: none;
+    -ms-word-break: break-all;
+    word-break: break-all;
+    /* Non standard for webkit*/
+    word-break: break-word;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    hyphens: auto;
 }
 p {
     font-family: 'roboto-mono-light';
@@ -80,10 +83,17 @@ p {
     margin: auto;
     margin-top: 20px;
 }
+.menu a, .menu a:hover, .menu a:visited, .menu a:focus, .menu a:active {
+    color: black;
+    border-bottom: 0;
+}
 .menu h3 {
     font-size: 1.2em;
     font-weight: normal;
     margin-bottom: 1em;
+}
+.menu p {
+    font-size: 1.1em;
 }
 .menu-cards {
     border: 4px solid black;
@@ -102,6 +112,9 @@ p {
 /*    margin-bottom: 50px;*/
     z-index: 1000;
 }
+#items-container {
+    margin-top: 4em;
+}
 .one-item {
     border: 4px solid black;
     border-top: 3px solid black;
@@ -114,6 +127,8 @@ p {
 .item-type {
     text-transform: uppercase;
     float: left;
+    padding-right: 10px;
+    margin-bottom: 1em;
     width: 25%;
     min-height: 40px;
     -ms-word-break: break-all;
@@ -128,16 +143,27 @@ p {
     float: left;
     width: 75%;
     min-height: 40px;
+    margin-bottom: 1em;
 }
 .item-tags {
     float: left;
     width: 25%;
     min-height: 20px;
+    padding-right: 10px;
+    margin-bottom: 1em;
+    -ms-word-break: break-all;
+    word-break: break-all;
+    /* Non standard for webkit*/
+    word-break: break-word;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    hyphens: auto;
 }
 .item-abstract {
     float: left;
     width: 75%;
     min-height: 200px;
+    margin-bottom: 1em;
 }
 .card-hole {
     clear: both;
@@ -153,8 +179,11 @@ p {
     margin-left: 50px;
     margin-right: 0;
 }
-.attached-note img {
+.attached-note img, .attached-note p img {
     max-width: 100%;
+}
+.attached-note img:hover, .attached-note p img:hover {
+    max-width: none;
 }
 @media screen and (min-width:250px) and (max-width:540px) {
     body {
