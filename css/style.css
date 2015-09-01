@@ -84,7 +84,7 @@ p {
     margin-top: 20px;
 }
 .menu a, .menu a:hover, .menu a:visited, .menu a:focus, .menu a:active {
-    color: black;
+    color: blue;
     border-bottom: 0;
     -ms-word-break: normal;
     word-break: normal;
