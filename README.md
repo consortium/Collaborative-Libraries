@@ -7,7 +7,7 @@ By Loraine Furter and Simon Worthington
 **Webcast:** https://meet.jit.si/CollaborativeLibraries and Skype @lorainefurter @mrchristian3  
 **GitHub workshop guide:** https://github.com/consortium/Collaborative-Libraries  
 **Zotero test library group:** https://www.zotero.org/groups/384780  
-**Library Web API interface:** http://consortium.github.io/Collaborative-Libraries/whole.html  
+**Library Web API interface:** http://consortium.github.io/Collaborative-Libraries/
 **Library Web API interface (code):** https://github.com/furter/shared-library  
 **Etherpad notes:** https://consortium.titanpad.com/67  
 **Duration:** 3 hours  
