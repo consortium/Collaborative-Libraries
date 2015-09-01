@@ -138,7 +138,7 @@ var processData = function(inData) {
 
 
     /* gets the collection from zotero */
- $.getJSON('https://api.zotero.org/groups/384780/collections/UU43UB5I/items?key=1L6PZcpcAGt60UArycW14g7v&limit=100&sort=title', function(incomingData) {
+ $.getJSON('https://api.zotero.org/groups/384780/items?key=1L6PZcpcAGt60UArycW14g7v&limit=100&sort=title', function(incomingData) {
      /* if the query succeeds, the response will be available as the variable “data”: */
      /* this variable is sent to the template above */
         var processedData = processData(incomingData);
@@ -156,37 +156,3 @@ var processData = function(inData) {
 <div id="items-container">
 
 </div>
-
-<!-- NOTES:
-this works: https://api.zotero.org/users/1404902/items?key=fQAzFJXRib1RiqWRM2CUVeTq&format=csljson
-
-https://api.zotero.org/users/1404902/items?key=fQAzFJXRib1RiqWRM2CUVeTq&format=csljson&limit=100&itemType=book
-
-to get only one item:
-https://api.zotero.org/users/1404902/items/Q2TAUHDA?key=fQAzFJXRib1RiqWRM2CUVeTq&format=csljson
-
-Another example
-https://api.zotero.org/users/475425/collections/9KH9TNSJ/items?format=bib
-
-didn’t work:
-https://api.zotero.org/groups/358795/items?format=csljson
-
-Key for the group:
-1L6PZcpcAGt60UArycW14g7v
-(to create a new key: https://www.zotero.org/settings/keys/new)
-
-https://api.zotero.org/groups/358795/items?key=1L6PZcpcAGt60UArycW14g7v&format=csljson
-
-REF Citation style language csljson:
-
-https://github.com/citation-style-language/schema/blob/master/csl-data.json
-Zotero’s API info
-https://www.zotero.org/support/dev/client_coding/javascript_api
-
-BASICS DOCU
-https://www.zotero.org/support/dev/web_api/v3/basics
-
-NOTES AND ANNOTATIONS (don’t work ONLINE :( )
-https://www.zotero.org/support/dev/client_coding/javascript_api#get_child_notes_for_an_item
-
--->
