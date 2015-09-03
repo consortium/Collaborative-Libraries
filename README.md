@@ -71,13 +71,13 @@ Multilingual support (Spanish) https://www.zotero.org/support/es/installation
 * P2P libraries and knowledge sharing - private and shared librarianship - Zotero as a library Babelfish  
 * Co-creation: Connecting Cities workshop, Berlin - Feb 2015, #bbl Bureau for Book Liberation, Annotation Workshop
 
-### The Big Idea - A Vision for Zotero
+### The Big Idea - A Vision for Zotero for co-creation development
 
 P2P knowledge sharing and allowing public to take on roles as librarians and archivists. Zotero allows for a distributed database, that taps into bibliographic data and translates between other library data systems.
 
 Use cases  
-* #bookcamping
-* MlP
+* #bookcamping - p2p online library, easy make, use and maintain 
+* MlP - institutional knowledge sharing. simple web widget to create media playlists from all event for display on media façade and library
 
 ### Bookcamping
 
