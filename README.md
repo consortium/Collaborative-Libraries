@@ -118,6 +118,11 @@ A series of exercises to become familiar with Zotero’s core functionalities.
 
 ## Beyond the Zotero interface
 
+Using Zotero API to design custom interfaces – a use case:  
+**Library Web API interface:** http://consortium.github.io/Collaborative-Libraries/  
+**Zotero test library group:** https://www.zotero.org/groups/384780  
+**Library Web API interface (code):** https://github.com/consortium/Collaborative-Libraries  
+
 ## Discussion
 
 The big idea, zotero interfaces, co-creation, how-tos, next steps etc 
