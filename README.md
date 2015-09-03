@@ -67,7 +67,7 @@ Multilingual support (Spanish) https://www.zotero.org/support/es/installation
 
 ## Collective Libraries, collective librarianship - the big idea and supporting #bookcamping
 
-* A little Zotero history  
+* A little Zotero history | Roy Rosenzweig Center for History and New Media (RRCHNM) at George Mason University, Virginia, US http://chnm.gmu.edu/research-and-tools/ | Roy Rosenzweig memorial http://thanksroy.org/about 
 * P2P libraries and knowledge sharing - private and shared librarianship - Zotero as a library Babelfish  
 * Co-creation: Connecting Cities workshop, Berlin - Feb 2015, #bbl Bureau for Book Liberation, Annotation Workshop
 
