@@ -53,3 +53,73 @@ Multilingual support (Spanish) https://www.zotero.org/support/es/installation
 
 6. Join the test Zotero workshop online library. Navigate to this address in your browser and once you're logged in with your Zotero credentials click the ‘Join Group’ https://www.zotero.org/groups/384780 
 7. Install the word processor Zotero plugin. Navigate to the address below and follow the install instructions. It is normal for the plugin not to work correctly, so if you find it will not install or doesn’t properly function you can skip this part. https://www.zotero.org/support/wordprocessorplugin_installation 
+
+
+## Schedule
+
+5 mins - Welcome, introductions and programme outline  
+15 mins - Collective Libraries, collective librarianship - the big idea and supporting #bookcamping MlP library building  
+45 mins - Using Zotero - building a library and reading room  
+15 mins - Break  
+45 mins - Beyond the Zotero interface  
+45 mins - Discussion; the big idea, zotero interfaces, co-creation, how-tos, next steps etc  
+5 mins - Closing
+
+## Collective Libraries, collective librarianship - the big idea and supporting #bookcamping
+
+* A little Zotero history  
+* P2P libraries and knowledge sharing - private and shared librarianship - Zotero as a library Babelfish  
+* Co-creation: Connecting Cities workshop, Berlin - Feb 2015, #bbl Bureau for Book Liberation, Annotation Workshop
+
+### A Vision for Zotero
+
+P2P knowledge sharing and allowing public to take on roles as librarians and archivists. Zotero allows for a distributed database, that taps into bibliographic data and translates between other library data systems.
+
+Use cases  
+* #bookcamping
+* MlP
+
+### Bookcamping
+
+Bookcamping want to create; an online library, create library collections, create commentaries on collections or titles, allow for sharing online and offline.
+
+Bookcamping scenario. Bookcamping members are attending a meeting on ‘autonomy and art’, over a couple of days people share reading material, discussions and videos. How could Zotero help create a ‘Reading Room’ for further use.
+
+* Create a shared reading list
+* Invite event attendees to add to an open list - media and commentaries
+* Quickly share the list as ‘play list’ style
+* Over the event and post event add commentaries and create a guide to the subject 
+
+### MlP
+
+MlP are looking to create visibility for their events and workshop, display this on the Web/mobile first and the media façade. All events would have an easy to use library creation playlist and commentary Web interface added to MlP web pages. If all events uses this at MlP over time a P2P library would be created and provide a special public view into the MlP knowledge space.
+
+MlP scenario. A workshop happens on a weekly basis, such as ‘ULAB 2.0’ http://medialab-prado.es/article/ulab-20 open learning workshops. At the workshops people can create collections of media mentioned in the workshop, this can be shared as a simple playlist on the media façade on the Web and elsewhere. Using the Hybrid Player media slide shows of specific publications can be made for playback on the Web and media façade.
+
+* Create a collection per workshop
+* Publish ‘playlist’ to media façade
+* Publish a media slideshow on Web and media façade
+
+## Using Zotero - building a library and reading room
+
+A series of exercises to become familiar with Zotero’s core functionalities.
+
+1. Getting setup - review ‘Setup guide’ procedure
+2. Adding media
+3. Joining a group
+4. Creating a group (reading room)
+5. Creating a collection
+6. Advanced media addition
+7. Adding notes and tags
+8. Exercise: Make a collection and add 5 items on the topic. 2 min review each.
+9. Review learning: list items covered
+
+## Break 15 mins
+
+## Beyond the Zotero interface
+
+## Discussion
+
+The big idea, zotero interfaces, co-creation, how-tos, next steps etc 
+
+
