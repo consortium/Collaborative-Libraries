@@ -66,6 +66,7 @@ p {
     font-family: 'roboto-mono-light';
     font-size: 1em;
     line-height: 1.5em;
+    padding-bottom: 1em;
 }
 .drawer {
     padding: 20px;
